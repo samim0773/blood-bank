@@ -1,0 +1,18 @@
+<div class="container">
+  <table>
+    <tr>
+      <th>SL</th>
+      <th>Name</th>
+      <th>Blood Group</th>
+      <th>Contact</th>
+      <th>Report</th>
+    </tr>
+    <tr *ngFor="let donor of donorData">
+      <td>{{ donor.sl }}</td>
+      <td>{{ donor.name }}</td>
+      <td>{{ donor.bloodGroup }}</td>
+      <td>{{ donor.Contact }}</td>
+      <td><a href="#">Report</a></td>
+    </tr>
+  </table>
+</div>

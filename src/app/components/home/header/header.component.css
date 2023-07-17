@@ -1,0 +1,51 @@
+.container {
+  background-color: antiquewhite;
+}
+.header-top {
+  height: 40px;
+  background-color: #111111;
+}
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* ------------------- */
+.navbar {
+  background-color: #ea062b;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+}
+
+.navbar a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  padding-left: 16px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login{
+    margin-left: 400px;
+}
+
+
+
+
+
