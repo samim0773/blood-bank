@@ -2,188 +2,156 @@
   <div class="form-container">
     <form [formGroup]="donorData" (ngSubmit)="onSubmit()">
       <h1>Registration Form</h1>
-
-      <div class="field">
-        <label>Name</label>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          formControlName="name"
-        />
+      <div formGroupName="personalDetails">
+        <h2>Personal Details</h2>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" formControlName="name"
+            [ngStyle]="{ border:submitted && donorData.get('personalDetails.name').errors? '2px solid red': 'none'}"/>
+          <div
+            *ngIf="submitted && donorData.get('personalDetails.name').errors" style="color: red">
+            Please provide your full name
+          </div>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="text" placeholder="Enter your phone number" id="phone" formControlName="mobile"
+            [ngStyle]="{ border: submitted && donorData.get('personalDetails.mobile').errors ? '2px solid red' : 'none'}"/>
+            <div
+            *ngIf="submitted && donorData.get('personalDetails.mobile').errors" style="color: red">
+            Please provide your mobile number
+          </div>
+        </div>
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender" formControlName="gender"
+          [ngStyle]="{ border: submitted && donorData.get('personalDetails.gender').errors ? '2px solid red' : 'none'}">
+            <option selected disabled  value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <div *ngIf="submitted && donorData.get('personalDetails.gender').errors" style="color: red"> Please select your gender </div>
+        </div>
+        <div class="field">
+          <label for="dob">Birth Date</label>
+          <input type="date" id="dob" formControlName="dob" 
+          [ngStyle]="{ border: submitted && donorData.get('personalDetails.dob').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('personalDetails.dob').errors" style="color: red"> Please select your DOB </div>
+        </div>
+        <div class="field">
+          <label for="bloodgroup">Blood Group</label>
+          <select formControlName="bloodGroup" id="bloodgroup"
+          [ngStyle]="{ border: submitted && donorData.get('personalDetails.bloodGroup').errors ? '2px solid red' : 'none'}">
+            <option selected disabled value="">Select your blood group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+          <div
+            *ngIf="submitted && donorData.get('personalDetails.bloodGroup').errors" style="color: red">
+            Please select your blood group
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <label>Gender</label>
-        <select formControlName="genter">
-          <option value="">Select your gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
+      <div formGroupName="residentialDetails">
+        <h2>Residential Address</h2>
+        <div class="field">
+          <label for="address">Address</label>
+          <input type="text" placeholder="Enter your address" id="address" formControlName="address"
+          [ngStyle]="{ border: submitted && donorData.get('residentialDetails.address').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('residentialDetails.address').errors" style="color: red"> Please provide your address </div>
+        </div>
+        <div class="field">
+          <label for="city">City</label>
+          <input type="text" placeholder="Enter your city"id="city" formControlName="city"
+          [ngStyle]="{ border: submitted && donorData.get('residentialDetails.city').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('residentialDetails.city').errors" style="color: red"> Please provide your city </div>
+        </div>
+        <div class="field">
+          <label for="postalcode">Postal Code</label>
+          <input type="text" placeholder="Enter your postal code" id="postalcode" formControlName="postalCode"
+          [ngStyle]="{ border: submitted && donorData.get('residentialDetails.postalCode').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('residentialDetails.postalCode').errors" style="color: red"> Please provide your postal code </div>
+        </div>
+        <div class="field">
+          <label for="state">State</label>
+          <input type="text" placeholder="Enter your state" id="state" formControlName="state"
+          [ngStyle]="{ border: submitted && donorData.get('residentialDetails.state').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('residentialDetails.state').errors" style="color: red"> Please provide your state </div>
+        </div>
+        <div class="field">
+          <label for="country">Country</label>
+          <input type="text" placeholder="Enter your Country" id="country" formControlName="conutry"
+          [ngStyle]="{ border: submitted && donorData.get('residentialDetails.conutry').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('residentialDetails.conutry').errors" style="color: red"> Please provide your country </div>
+        </div>
       </div>
 
-      <div class="field">
-        <label>Phone</label>
-        <input
-          type="tel"
-          placeholder="Enter your phone number"
-          formControlName="mobile"
-        />
+      <div formGroupName="hospitalDetails">
+        <h2>Hospitals Details</h2>
+        <div class="field">
+          <label for="hosname">Name</label>
+          <input type="text" placeholder="Enter hospital name" id="hosname"formControlName="hosName"
+          [ngStyle]="{ border: submitted && donorData.get('hospitalDetails.hosName').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('hospitalDetails.hosName').errors" style="color: red"> Please provide your hospital name </div>
+        </div>
+        <div class="field">
+          <label for="hosaddress">Address</label>
+          <input type="text" placeholder="Enter hospital address" id="hosaddress"formControlName="hosAddress"
+          [ngStyle]="{ border: submitted && donorData.get('hospitalDetails.hosAddress').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('hospitalDetails.hosAddress').errors" style="color: red"> Please provide your hospital address </div>
+        </div>
+        <div class="field">
+          <label for="hoscity">City</label>
+          <input type="text" placeholder="Enter hospital city" id="hoscity" formControlName="hosCity"
+          [ngStyle]="{ border: submitted && donorData.get('hospitalDetails.hosCity').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('hospitalDetails.hosCity').errors" style="color: red"> Please provide your hospital city </div>
+        </div>
+        <div class="field">
+          <label for="hospostalcode">Postal Code</label>
+          <input type="text" placeholder="Enter hospital postal code" id="hospostalcode" formControlName="hosPostalCode"
+          [ngStyle]="{ border: submitted && donorData.get('hospitalDetails.hosPostalCode').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('hospitalDetails.hosPostalCode').errors" style="color: red"> Please provide your hospital postal code </div>
+        </div>
+        <div class="field">
+          <label for="hosstate">State</label>
+          <input type="text" placeholder="Enter hospital state" id="hosstate" formControlName="hosState"
+          [ngStyle]="{ border: submitted && donorData.get('hospitalDetails.hosState').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('hospitalDetails.hosState').errors" style="color: red"> Please provide your hospital state </div>
+        </div>
+        <div class="field">
+          <label for="hoscountry">Country </label>
+          <input type="text" placeholder="Enter hospital Country" id="hoscountry" formControlName="hosCountry"
+          [ngStyle]="{ border: submitted && donorData.get('hospitalDetails.hosCountry').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('hospitalDetails.hosCountry').errors" style="color: red"> Please provide your hospital country </div>
+        </div>
       </div>
 
-      <div class="field">
-        <label>Birth Date</label>
-        <input type="date" formControlName="dob" />
-      </div>
+      <div formGroupName="accountDetails">
+        <div class="field">
+          <label for="accountstatus">Account Status</label>
+          <div [ngStyle]="{ border: submitted && donorData.get('accountDetails.accountStatus').errors ? '2px solid red' : 'none'}">
+            <input type="radio" id="active" name="accountStatus" value="active" checked formControlName="accountStatus"/>
+            Active
+            <input type="radio" id="inactive" name="accountStatus" value="inactive" formControlName="accountStatus"/>
+            Inactive
+            <div *ngIf="submitted && donorData.get('accountDetails.accountStatus').errors" style="color: red"> Please provide your account Status </div>
+          </div>
+        </div>
 
-      <div class="field">
-        <label>Image</label>
-        <input type="file" accept="image/*" formControlName="image" />
-      </div>
-
-      <div class="field">
-        <label>Blood Group</label>
-        <select formControlName="bloodGroup">
-          <option value="">Select your blood group</option>
-          <option value="A+">A+</option>
-          <option value="A-">A-</option>
-          <option value="B+">B+</option>
-          <option value="B-">B-</option>
-          <option value="O+">O+</option>
-          <option value="O-">O-</option>
-          <option value="AB+">AB+</option>
-          <option value="AB-">AB-</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Account Status</label>
-        <input
-          type="radio"
-          name="account_status"
-          value="active"
-          checked
-          formControlName="accountStatus"
-        />
-        Active
-        <input
-          type="radio"
-          name="account_status"
-          value="inactive"
-          formControlName="accountStatus"
-        />
-        Inactive
-      </div>
-
-      <h2>Address</h2>
-
-      <div class="field">
-        <label>Address</label>
-        <input
-          type="text"
-          placeholder="Enter your address"
-          formControlName="address"
-        />
-      </div>
-
-      <div class="field">
-        <label>City</label>
-        <input
-          type="text"
-          placeholder="Enter your city"
-          formControlName="city"
-        />
-      </div>
-
-      <div class="field">
-        <label>Postal Code</label>
-        <input
-          type="text"
-          placeholder="Enter your postal code"
-          formControlName="postalCode"
-        />
-      </div>
-
-      <div class="field">
-        <label>State</label>
-        <input
-          type="text"
-          placeholder="Enter your state"
-          formControlName="state"
-        />
-      </div>
-
-      <div class="field">
-        <label>Country</label>
-        <input
-          type="text"
-          placeholder="Enter your Country"
-          formControlName="conutry"
-        />
-      </div>
-
-      <h2>Hospitals</h2>
-
-      <div class="field">
-        <label>Name</label>
-        <input
-          type="text"
-          placeholder="Enter hospital name"
-          formControlName="hosName"
-        />
-      </div>
-
-      <div class="field">
-        <label>Address</label>
-        <input
-          type="text"
-          placeholder="Enter hospital address"
-          formControlName="hosAddress"
-        />
-      </div>
-
-      <div class="field">
-        <label>City</label>
-        <input
-          type="text"
-          placeholder="Enter hospital city"
-          formControlName="hosCity"
-        />
-      </div>
-
-      <div class="field">
-        <label>Postal Code</label>
-        <input
-          type="text"
-          placeholder="Enter hospital postal code"
-          formControlName="hosPostalCode"
-        />
-      </div>
-
-      <div class="field">
-        <label>State</label>
-        <input
-          type="text"
-          placeholder="Enter hospital state"
-          formControlName="hosState"
-        />
-      </div>
-      <div class="field">
-        <label>Country </label>
-        <input
-          type="text"
-          placeholder="Enter hospital Country "
-          formControlName="hosCountry"
-        />
-      </div>
-
-      <div class="field">
-        <label>Password</label>
-        <input
-          type="password"
-          placeholder="Enter your password"
-          formControlName="password"
-        />
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" placeholder="Enter your password" id="password" formControlName="password" 
+          [ngStyle]="{ border: submitted && donorData.get('accountDetails.password').errors ? '2px solid red' : 'none'}"/>
+          <div *ngIf="submitted && donorData.get('accountDetails.password').errors" style="color: red"> Please provide your password </div>
+        </div>
       </div>
 
       <div class="button-container">
