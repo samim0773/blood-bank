@@ -1,0 +1,85 @@
+.container {
+  width: 80%;
+  margin: 10px auto 20px auto;
+  background-color: #f2f2f2;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+label {
+  font-size: 1.3rem;
+  width: 100%;
+  text-align: center;
+}
+.input {
+  width: 200px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 40px;
+}
+.coolinput {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: static;
+  max-width: 240px;
+}
+
+.coolinput label.text {
+  font-size: 0.75rem;
+  color: #818cf8;
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: #e8e8e8;
+  width: fit-content;
+}
+
+.coolinput input[type="text"].input,
+select {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px #818cf8 solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+}
+.coolinput input[type="text"].input:focus {
+  outline: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100px;
+  height: 60px;
+  border: 3px solid #315cfd;
+  border-radius: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: white;
+  font-size: 1.2em;
+  font-weight: 440;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background: #315cfd;
+  color: white;
+  font-size: 1.5em;
+}

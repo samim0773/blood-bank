@@ -1,0 +1,71 @@
+<div class="container">
+  <form [formGroup]="searchData" (ngSubmit)="onSubmit()">
+    <div class="search">
+      <div class="input box1 coolinput">
+        <div class="search titile">
+          <label for="country" class="text">Country</label>
+        </div>
+        <div class="search input">
+          <input  type="text" id="country" name="country" placeholder="Type to search..." class="input" formControlName="country"
+          [ngStyle]="{ border: submitted && searchData.get('country').errors ? '2px solid red' : ''}"/>
+        </div>
+        <div *ngIf="submitted && searchData.get('country').errors" style="color: red"> Please provide your hospital country </div>
+      </div>
+      <div class="input box2 coolinput">
+        <div class="search titile">
+          <label for="state" class="text">State</label>
+        </div>
+        <div class="search input">
+          <input type="text" id="state" name="state" placeholder="Type to search..." class="input" formControlName="state"
+          [ngStyle]="{ border: submitted && searchData.get('state').errors ? '2px solid red' : ''}"/>
+        </div>
+        <div *ngIf="submitted && searchData.get('state').errors" style="color: red"> Please provide your hospital state </div>
+      </div>
+      <div class="input box3 coolinput">
+        <div class="search titile">
+          <label for="pin" class="text">PIN</label>
+        </div>
+        <div class="search input">
+          <input type="text" id="pin" name="pin" placeholder="Type to search..." class="input" formControlName="pin"
+          [ngStyle]="{ border: submitted && searchData.get('pin').errors ? '2px solid red' : ''}"/>
+        </div>
+        <div *ngIf="submitted && searchData.get('pin').errors" style="color: red"> Please provide your hospital pin </div>
+      </div>
+      <div class="input box5 coolinput">
+        <div class="search titile">
+          <label for="bloodGroup" class="text">Blood Group</label>
+        </div>
+        <div class="search input">
+          <select id="bloodGroup" name="bloodGroup" class="input" formControlName="blood"
+          [ngStyle]="{ border: submitted && searchData.get('blood').errors ? '2px solid red' : ''}">
+          <option value="" disabled selected >Please Choose...</option>
+            <option value="A-">A-</option>
+            <option value="A+">A+</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+        </div>
+        <div *ngIf="submitted && searchData.get('blood').errors" style="color: red"> Please provide blood group </div>
+      </div>
+      <div class="input box4 coolinput">
+        <div class="search titile">
+          <label for="hospital" class="text">Hospital</label>
+        </div>
+        <div class="search input">
+          <input type="text" id="hospital" name="hospital" placeholder="Type to search..." class="input" formControlName="hospital"
+          [ngStyle]="{ border: submitted && searchData.get('hospital').errors ? '2px solid red' : ''}"/>
+        </div>
+        <div *ngIf="submitted && searchData.get('hospital').errors" style="color: red"> Please provide your hospital name </div>
+      </div>
+      
+    </div>
+    <div class="btn">
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</div>
+<app-main-section></app-main-section>
